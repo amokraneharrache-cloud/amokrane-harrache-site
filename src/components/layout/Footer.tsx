@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { mainNavigation, serviceNavigation } from "@/content/navigation";
+import { footerNavigation, serviceNavigation } from "@/content/navigation";
 import { siteConfig } from "@/lib/site";
 
 export function Footer() {
@@ -59,7 +59,7 @@ export function Footer() {
         <nav aria-label="Pages principales">
           <p className="text-sm font-semibold text-[#171713]">Site</p>
           <div className="mt-3 grid gap-2">
-            {mainNavigation.map((item) => (
+            {footerNavigation.map((item) => (
               <Link
                 className="text-sm text-[#5F5A50] hover:text-[#171713]"
                 href={item.href}

@@ -1,4 +1,6 @@
+import { demonstrators } from "@/content/demonstrators";
 import { allPages } from "@/content/pages";
+import { resourceArticles } from "@/content/resources";
 import { offers } from "@/content/offers";
 import { siteConfig } from "@/lib/site";
 
@@ -15,6 +17,29 @@ export function GET() {
     "## Offres",
     "",
     ...offers.map((offer) => "- " + offer.title + " : " + offer.price + "."),
+    "",
+    "## Démonstrateurs",
+    "",
+    ...demonstrators.map(
+      (demo) =>
+        "- [" +
+        demo.page.label +
+        "](" +
+        new URL(demo.page.path, siteConfig.url).toString() +
+        "): exemple pédagogique, pas une mission client.",
+    ),
+    "",
+    "## Ressources",
+    "",
+    ...resourceArticles.map(
+      (article) =>
+        "- [" +
+        article.title +
+        "](" +
+        new URL(article.page.path, siteConfig.url).toString() +
+        "): " +
+        article.description,
+    ),
     "",
     "## Notes",
     "",

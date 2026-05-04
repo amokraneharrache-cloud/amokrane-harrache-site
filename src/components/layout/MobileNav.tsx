@@ -10,7 +10,7 @@ export function MobileNav() {
   const close = () => setOpen(false);
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <button
         aria-expanded={open}
         aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}

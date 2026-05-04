@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { MobileNav } from "@/components/layout/MobileNav";
 import { Button } from "@/components/ui/Button";
-import { mainNavigation } from "@/content/navigation";
+import { headerNavigation } from "@/content/navigation";
 import { siteConfig } from "@/lib/site";
 
 export function Header() {
@@ -15,8 +15,8 @@ export function Header() {
         <Link className="text-lg font-semibold text-[#171713]" href="/">
           {siteConfig.ownerName}
         </Link>
-        <nav aria-label="Navigation principale" className="hidden items-center gap-6 md:flex">
-          {mainNavigation.map((item) => (
+        <nav aria-label="Navigation principale" className="hidden items-center gap-5 lg:flex">
+          {headerNavigation.map((item) => (
             <Link className="text-sm font-medium text-[#5F5A50] hover:text-[#171713]" href={item.href} key={item.href}>
               {item.label}
             </Link>

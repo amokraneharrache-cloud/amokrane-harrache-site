@@ -38,6 +38,44 @@ export function webpageSchema({
   };
 }
 
+export function articleSchema({
+  path,
+  headline,
+  description,
+  datePublished,
+  dateModified,
+}: {
+  path: string;
+  headline: string;
+  description: string;
+  datePublished: string;
+  dateModified?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline,
+    description,
+    url: absoluteUrl(path),
+    datePublished,
+    dateModified: dateModified || datePublished,
+    author: {
+      "@type": "Person",
+      name: siteConfig.ownerName,
+      url: absoluteUrl("/a-propos"),
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": absoluteUrl(path),
+    },
+  };
+}
+
 export function breadcrumbSchema(items: Array<{ name: string; path: string }>) {
   return {
     "@context": "https://schema.org",

@@ -9,7 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return allPages.map((page) => ({
     url: new URL(page.path, siteConfig.url).toString(),
     lastModified,
-    changeFrequency: page.path === "/" ? "weekly" : "monthly",
+    changeFrequency:
+      page.path === "/" || page.path === "/ressources" ? "weekly" : "monthly",
     priority: page.priority ?? 0.7,
   }));
 }

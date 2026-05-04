@@ -63,6 +63,70 @@ export const pages = {
       "Assistant IA interne sur périmètre documentaire cadré, sources, limites, règles d'accès et validation humaine.",
     priority: 0.75,
   },
+  demonstrators: {
+    label: "Démonstrateurs",
+    path: "/demonstrateurs",
+    title: "Démonstrateurs IA, data et automatisation",
+    description:
+      "Exemples concrets de workflows IA, data et automatisation : fichier Excel, reporting automatisé et assistant documentaire interne.",
+    priority: 0.78,
+  },
+  demonstratorExcel: {
+    label: "Assistant IA pour fichier Excel",
+    path: "/demonstrateurs/assistant-excel",
+    title: "Démonstrateur assistant IA pour fichier Excel",
+    description:
+      "Démonstrateur d'assistant IA pour lire un fichier Excel métier, repérer des colonnes, détecter des anomalies simples et préparer une synthèse.",
+    priority: 0.66,
+  },
+  demonstratorReporting: {
+    label: "Workflow reporting automatisé",
+    path: "/demonstrateurs/reporting-automatise",
+    title: "Démonstrateur workflow de reporting automatisé",
+    description:
+      "Démonstrateur de workflow pour consolider plusieurs exports, contrôler les écarts et générer un reporting prêt à valider.",
+    priority: 0.66,
+  },
+  demonstratorDocumentary: {
+    label: "Assistant documentaire interne",
+    path: "/demonstrateurs/assistant-documentaire",
+    title: "Démonstrateur assistant documentaire interne",
+    description:
+      "Démonstrateur d'assistant IA interne qui répond à partir d'un périmètre documentaire défini avec sources, limites et validation humaine.",
+    priority: 0.66,
+  },
+  resources: {
+    label: "Ressources",
+    path: "/ressources",
+    title: "Ressources sur l'automatisation IA, data et workflows métier",
+    description:
+      "Articles courts et concrets pour automatiser reportings Excel, fichiers, emails, documents et processus répétitifs en PME.",
+    priority: 0.74,
+  },
+  resourceReportingExcel: {
+    label: "Automatiser un reporting Excel",
+    path: "/ressources/automatiser-reporting-excel",
+    title: "Comment automatiser un reporting Excel récurrent ?",
+    description:
+      "Symptômes, prérequis, étapes, limites et bons cas d'usage pour automatiser un reporting Excel récurrent sans perdre le contrôle.",
+    priority: 0.64,
+  },
+  resourceAuditPme: {
+    label: "Audit automatisation PME",
+    path: "/ressources/audit-automatisation-pme",
+    title: "Audit automatisation PME : identifier les bons processus",
+    description:
+      "Comment analyser et prioriser les processus à automatiser en PME selon gain, complexité, risque et livrables attendus.",
+    priority: 0.64,
+  },
+  resourceAssistantIa: {
+    label: "Assistant IA interne",
+    path: "/ressources/assistant-ia-interne-entreprise",
+    title: "Assistant IA interne : cadrer sans chatbot incontrôlable",
+    description:
+      "Sources, périmètre, accès, sécurité, hallucinations et pilote : comment cadrer un assistant IA interne utile et contrôlé.",
+    priority: 0.64,
+  },
   useCases: {
     label: "Cas d'usage",
     path: "/cas-usages",

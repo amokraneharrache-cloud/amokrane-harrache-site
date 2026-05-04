@@ -62,14 +62,17 @@ const demos = [
   {
     title: "Assistant IA pour fichier Excel",
     text: "Analyse d'un fichier, détection d'anomalies et synthèse exploitable.",
+    href: "/demonstrateurs/assistant-excel",
   },
   {
     title: "Workflow reporting automatisé",
     text: "Consolidation de plusieurs exports, contrôles et génération d'un rapport.",
+    href: "/demonstrateurs/reporting-automatise",
   },
   {
     title: "Assistant documentaire interne",
     text: "Recherche et synthèse à partir de procédures ou documents internes.",
+    href: "/demonstrateurs/assistant-documentaire",
   },
 ];
 
@@ -315,8 +318,8 @@ export default function HomePage() {
       <Section
         className="bg-[#F7F5EF]"
         eyebrow="DÉMONSTRATEURS"
-        title="Démonstrateurs IA, data et automatisation"
-        intro="Ces exemples montrent comment un problème métier peut être transformé en workflow. Ils ne sont pas présentés comme des cas clients."
+        title="Voir des démonstrateurs concrets"
+        intro="Des exemples pour comprendre comment un reporting, un fichier Excel ou une base documentaire peut devenir un workflow contrôlé."
       >
         <div className="grid gap-4 md:grid-cols-3">
           {demos.map((demo) => (
@@ -324,9 +327,15 @@ export default function HomePage() {
               <Badge>DÉMONSTRATEUR</Badge>
               <h3 className="mt-4 text-lg font-semibold text-[#171713]">{demo.title}</h3>
               <p className="mt-3 leading-7 text-[#5F5A50]">{demo.text}</p>
+              <Button className="mt-5 w-full" href={demo.href} variant="secondary">
+                Voir le démonstrateur →
+              </Button>
             </Card>
           ))}
         </div>
+        <Button className="mt-8" href="/demonstrateurs">
+          Voir les démonstrateurs →
+        </Button>
       </Section>
 
       <Section
