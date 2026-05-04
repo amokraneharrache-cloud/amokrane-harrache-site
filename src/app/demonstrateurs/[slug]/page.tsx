@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { CTASection } from "@/components/blocks/CTASection";
 import { Hero } from "@/components/blocks/Hero";
+import { ExcelAssistantDemo } from "@/components/demos/ExcelAssistantDemo";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
@@ -46,6 +47,8 @@ export default async function DemonstratorDetailPage({ params }: PageProps) {
     notFound();
   }
 
+  const isExcelAssistant = demonstrator.slug === "assistant-excel";
+
   return (
     <>
       <JsonLd
@@ -87,6 +90,52 @@ export default async function DemonstratorDetailPage({ params }: PageProps) {
           <BeforeAfterBlock />
         </div>
       </Section>
+
+      {isExcelAssistant ? (
+        <>
+          <Section
+            eyebrow="DÉMO VISUELLE"
+            title="Démo avec données fictives"
+            intro="Cette démo utilise des données fictives. Elle illustre une logique d'analyse et de validation, pas un cas client réel."
+          >
+            <ExcelAssistantDemo />
+            <div className="mt-6 grid gap-4 rounded-2xl border border-[#DDD8CC] bg-[#FBFAF5] p-5 shadow-[0_18px_50px_rgba(17,17,14,0.05)] md:grid-cols-[1fr_auto] md:items-center">
+              <p className="leading-7 text-[#5F5A50]">
+                Les données sont volontairement simples pour rendre visibles les
+                règles, les anomalies et la validation humaine avant toute
+                automatisation réelle.
+              </p>
+              <Button href="/contact">Me montrer un fichier similaire →</Button>
+            </div>
+          </Section>
+
+          <Section
+            className="bg-[#EFEDE5]"
+            eyebrow="VIDÉO"
+            title="Voir la démo en vidéo"
+            intro="Une capture courte de la même simulation, sans connexion à une API IA réelle."
+          >
+            <div className="overflow-hidden rounded-2xl border border-[#DDD8CC] bg-[#11110E] shadow-[0_24px_80px_rgba(17,17,14,0.12)]">
+              <video
+                className="aspect-video w-full bg-[#11110E] object-cover"
+                controls
+                muted
+                playsInline
+                poster="/images/demo-assistant-excel-poster.png"
+                preload="metadata"
+              >
+                <source src="/videos/demo-assistant-excel.webm" type="video/webm" />
+                Si la vidéo ne se charge pas, la démo interactive ci-dessus
+                présente les mêmes étapes.
+              </video>
+            </div>
+            <p className="mt-4 text-sm leading-6 text-[#5F5A50]">
+              Si la vidéo ne se charge pas, la démo interactive ci-dessus
+              présente les mêmes étapes.
+            </p>
+          </Section>
+        </>
+      ) : null}
 
       <Section
         eyebrow="WORKFLOW PROPOSÉ"

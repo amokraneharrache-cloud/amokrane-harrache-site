@@ -84,6 +84,18 @@ export default function ResourcesPage() {
             </Card>
           ))}
         </div>
+        <Card className="mt-6">
+          <div className="grid gap-4 md:grid-cols-[1fr_auto] md:items-center">
+            <p className="leading-7 text-[#5F5A50]">
+              Vous avez identifié un processus répétitif dans votre entreprise ?
+              La page Services aide à choisir entre diagnostic, audit, prototype
+              ou automatisation complète.
+            </p>
+            <Button href="/services" variant="secondary">
+              Trouver le bon point de départ →
+            </Button>
+          </div>
+        </Card>
       </Section>
 
       <CTASection

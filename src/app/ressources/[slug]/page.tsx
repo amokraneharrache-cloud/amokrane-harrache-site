@@ -186,6 +186,97 @@ function ArticleSection({
           ))}
         </ul>
       ) : null}
+      {section.table ? <ResponsiveTable table={section.table} /> : null}
+      {section.blocks?.length ? (
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
+          {section.blocks.map((block) => (
+            <div
+              className="rounded-xl border border-[#DDD8CC] bg-[#F7F5EF] p-4"
+              key={block.title}
+            >
+              <h3 className="font-semibold text-[#171713]">{block.title}</h3>
+              {block.text ? (
+                <p className="mt-2 leading-7 text-[#5F5A50]">{block.text}</p>
+              ) : null}
+              {block.items?.length ? (
+                <ul className="mt-3 grid gap-2">
+                  {block.items.map((item) => (
+                    <li className="flex gap-3 text-sm leading-6 text-[#5F5A50]" key={item}>
+                      <span aria-hidden="true" className="font-mono text-[#3558D4]">
+                        →
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+          ))}
+        </div>
+      ) : null}
     </article>
+  );
+}
+
+function ResponsiveTable({
+  table,
+}: {
+  table: NonNullable<ResourceArticle["sections"][number]["table"]>;
+}) {
+  return (
+    <div className="mt-5">
+      <div className="hidden overflow-hidden rounded-xl border border-[#DDD8CC] md:block">
+        <table className="w-full border-collapse text-left">
+          <thead className="bg-[#EFEDE5]">
+            <tr>
+              {table.headers.map((header) => (
+                <th
+                  className="px-3 py-3 font-mono text-[11px] font-semibold uppercase text-[#8A857A]"
+                  key={header}
+                >
+                  {header}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-[#DDD8CC]">
+            {table.rows.map((row) => (
+              <tr key={row.join("|")}>
+                {row.map((cell, index) => (
+                  <td
+                    className={
+                      index === 0
+                        ? "px-3 py-4 align-top text-sm font-semibold leading-6 text-[#171713]"
+                        : "px-3 py-4 align-top text-sm leading-6 text-[#5F5A50]"
+                    }
+                    key={`${index}-${cell}`}
+                  >
+                    {cell}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="grid gap-3 md:hidden">
+        {table.rows.map((row) => (
+          <div className="rounded-xl border border-[#DDD8CC] bg-[#F7F5EF] p-4" key={row.join("|")}>
+            <h3 className="font-semibold text-[#171713]">{row[0]}</h3>
+            <dl className="mt-3 grid gap-2 text-sm">
+              {row.slice(1).map((cell, index) => (
+                <div className="grid gap-1" key={table.headers[index + 1]}>
+                  <dt className="font-mono text-[11px] font-semibold uppercase text-[#8A857A]">
+                    {table.headers[index + 1]}
+                  </dt>
+                  <dd className="leading-6 text-[#5F5A50]">{cell}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }

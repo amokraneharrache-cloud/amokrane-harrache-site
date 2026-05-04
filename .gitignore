@@ -1,5 +1,7 @@
 node_modules
 .next
 out
+.tmp
+.DS_Store
 .env*.local
 .codex-dataless-backup

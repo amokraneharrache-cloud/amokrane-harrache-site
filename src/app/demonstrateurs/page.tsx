@@ -51,7 +51,14 @@ export default function DemonstratorsPage() {
         <div className="grid gap-4 lg:grid-cols-3">
           {demonstrators.map((demonstrator) => (
             <Card className="flex flex-col" key={demonstrator.slug}>
-              <Badge>DÉMONSTRATEUR</Badge>
+              <div className="flex flex-wrap gap-2">
+                <Badge>DÉMONSTRATEUR</Badge>
+                {demonstrator.slug === "assistant-excel" ? (
+                  <Badge className="border-[#D5E7DA] bg-[#F0FAF4] text-[#0F7A4F]">
+                    Vidéo disponible
+                  </Badge>
+                ) : null}
+              </div>
               <h2 className="mt-4 text-xl font-semibold leading-tight text-[#171713]">
                 {demonstrator.page.label}
               </h2>
@@ -87,6 +94,18 @@ export default function DemonstratorsPage() {
             </Card>
           ))}
         </div>
+        <Card className="mt-6">
+          <div className="grid gap-4 md:grid-cols-[1fr_auto] md:items-center">
+            <p className="leading-7 text-[#5F5A50]">
+              Vous avez un cas proche ? Les services d'automatisation IA
+              permettent de passer d'un démonstrateur à un diagnostic, un
+              prototype ou un workflow réel.
+            </p>
+            <Button href="/services" variant="secondary">
+              Voir les services →
+            </Button>
+          </div>
+        </Card>
       </Section>
 
       <Section className="bg-[#11110E]">

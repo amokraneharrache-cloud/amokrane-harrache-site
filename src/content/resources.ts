@@ -15,6 +15,15 @@ export type ResourceArticle = {
     title: string;
     paragraphs?: string[];
     bullets?: string[];
+    table?: {
+      headers: string[];
+      rows: string[][];
+    };
+    blocks?: Array<{
+      title: string;
+      text?: string;
+      items?: string[];
+    }>;
   }>;
 };
 
@@ -29,7 +38,7 @@ export const resourceArticles: ResourceArticle[] = [
       "Expliquer les symptômes, les prérequis, les étapes, les limites et les bons cas d'usage.",
     publishedAt: "2026-05-04",
     cta: {
-      label: "Voir l'offre automatisation reporting Excel →",
+      label: "Voir le service reporting Excel →",
       href: "/automatisation-reporting-excel",
     },
     sections: [
@@ -95,7 +104,7 @@ export const resourceArticles: ResourceArticle[] = [
       "Identifier les bons processus à automatiser avant de choisir une stack ou un outil IA.",
     publishedAt: "2026-05-04",
     cta: {
-      label: "Voir l'audit automatisation IA →",
+      label: "Demander un audit →",
       href: "/audit-automatisation-ia",
     },
     sections: [
@@ -128,6 +137,44 @@ export const resourceArticles: ResourceArticle[] = [
         ],
       },
       {
+        title: "Exemple simple de priorisation",
+        paragraphs: [
+          "Le tableau ci-dessous est un exemple indicatif, pas un cas client ni une recommandation universelle. La décision dépend toujours des données, des outils, des exceptions et du niveau de validation attendu.",
+        ],
+        table: {
+          headers: [
+            "Processus",
+            "Gain potentiel",
+            "Complexité",
+            "Risque",
+            "Décision possible",
+          ],
+          rows: [
+            [
+              "Reporting Excel mensuel",
+              "Élevé",
+              "Moyenne",
+              "Faible à moyen",
+              "Prototype possible",
+            ],
+            [
+              "Emails entrants à qualifier",
+              "Moyen",
+              "Moyenne",
+              "Moyen",
+              "Cadrage des cas incertains",
+            ],
+            [
+              "Assistant interne documentaire",
+              "Potentiel élevé",
+              "Plus forte",
+              "À cadrer",
+              "Commencer par périmètre pilote",
+            ],
+          ],
+        },
+      },
+      {
         title: "Livrables attendus",
         bullets: [
           "Cartographie courte des processus analysés.",
@@ -156,7 +203,7 @@ export const resourceArticles: ResourceArticle[] = [
       "Cadrer un assistant IA interne utile, sourcé et limité à un périmètre maîtrisé.",
     publishedAt: "2026-05-04",
     cta: {
-      label: "Voir l'offre assistant IA interne →",
+      label: "Étudier un assistant interne →",
       href: "/assistant-ia-interne",
     },
     sections: [
@@ -198,6 +245,44 @@ export const resourceArticles: ResourceArticle[] = [
         title: "Démarrer par un pilote",
         paragraphs: [
           "Le pilote doit être volontairement limité : quelques documents propres, un groupe d'utilisateurs, une liste de questions de test et des critères de validation. On élargit seulement quand les refus, sources et limites sont compris.",
+        ],
+      },
+      {
+        title: "Exemple de cadrage pour un pilote",
+        paragraphs: [
+          "Cet exemple reste indicatif : il sert à montrer le type de périmètre et de garde-fous à poser avant d'élargir un assistant interne.",
+        ],
+        blocks: [
+          {
+            title: "Périmètre autorisé",
+            items: [
+              "Procédures internes sélectionnées.",
+              "FAQ métier.",
+              "Guides support ou RH non sensibles.",
+            ],
+          },
+          {
+            title: "Question dans le périmètre",
+            text: "Quelle est la procédure à suivre pour traiter une demande incomplète ?",
+          },
+          {
+            title: "Question hors périmètre",
+            text: "Quel salaire a tel salarié ?",
+          },
+          {
+            title: "Réponse attendue",
+            text: "Je ne peux pas répondre à cette question avec le périmètre documentaire autorisé.",
+          },
+          {
+            title: "Critères de validation",
+            items: [
+              "Réponses sourcées quand possible.",
+              "Refus clair hors périmètre.",
+              "Signalement des cas incertains.",
+              "Validation humaine sur les sujets sensibles.",
+              "Test sur 20 à 50 questions réelles ou anonymisées.",
+            ],
+          },
         ],
       },
     ],
