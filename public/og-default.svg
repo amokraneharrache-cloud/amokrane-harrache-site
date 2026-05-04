@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Amokrane Harrache, automatisation IA pour équipes métier et PME">
+  <rect width="1200" height="630" fill="#f8fafc"/>
+  <rect x="72" y="72" width="1056" height="486" rx="18" fill="#ffffff" stroke="#dbe3ea"/>
+  <text x="120" y="166" fill="#0f172a" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Amokrane Harrache</text>
+  <text x="120" y="236" fill="#0f172a" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="700">Automatisation IA</text>
+  <text x="120" y="300" fill="#0f172a" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="700">pour équipes métier et PME</text>
+  <text x="120" y="376" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="28">Excel, reporting, données, emails, documents, relances.</text>
+  <g transform="translate(120 438)">
+    <rect width="190" height="58" rx="8" fill="#0f172a"/>
+    <text x="24" y="37" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Diagnostic</text>
+    <rect x="214" width="210" height="58" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="238" y="37" fill="#334155" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Audit</text>
+    <rect x="448" width="250" height="58" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="472" y="37" fill="#334155" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Prototype workflow</text>
+  </g>
+</svg>
