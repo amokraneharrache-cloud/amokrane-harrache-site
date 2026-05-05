@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 
 import { CTASection } from "@/components/blocks/CTASection";
 import { Hero } from "@/components/blocks/Hero";
-import { ExcelAssistantDemo } from "@/components/demos/ExcelAssistantDemo";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
@@ -48,6 +47,9 @@ export default async function DemonstratorDetailPage({ params }: PageProps) {
   }
 
   const isExcelAssistant = demonstrator.slug === "assistant-excel";
+  const ExcelAssistantDemo = isExcelAssistant
+    ? (await import("@/components/demos/ExcelAssistantDemo")).ExcelAssistantDemo
+    : null;
 
   return (
     <>
@@ -94,45 +96,42 @@ export default async function DemonstratorDetailPage({ params }: PageProps) {
       {isExcelAssistant ? (
         <>
           <Section
-            eyebrow="DÉMO VISUELLE"
-            title="Démo avec données fictives"
-            intro="Cette démo utilise des données fictives. Elle illustre une logique d'analyse et de validation, pas un cas client réel."
+            eyebrow="DÉMO INTERACTIVE"
+            title="Tester une analyse Excel ou CSV locale"
+            intro="Cette démo utilise des règles simples côté navigateur. Elle illustre une logique d'analyse et de validation, pas un cas client réel."
           >
-            <ExcelAssistantDemo />
+            {ExcelAssistantDemo ? <ExcelAssistantDemo /> : null}
             <div className="mt-6 grid gap-4 rounded-2xl border border-[#DDD8CC] bg-[#FBFAF5] p-5 shadow-[0_18px_50px_rgba(17,17,14,0.05)] md:grid-cols-[1fr_auto] md:items-center">
               <p className="leading-7 text-[#5F5A50]">
-                Les données sont volontairement simples pour rendre visibles les
-                règles, les anomalies et la validation humaine avant toute
-                automatisation réelle.
+                Vous pouvez partir du fichier exemple ou importer un export
+                local. Le fichier n'est pas transmis au serveur et la validation
+                humaine reste centrale.
               </p>
               <Button href="/contact">Me montrer un fichier similaire →</Button>
             </div>
-          </Section>
-
-          <Section
-            className="bg-[#EFEDE5]"
-            eyebrow="VIDÉO"
-            title="Voir la démo en vidéo"
-            intro="Une capture courte de la même simulation, sans connexion à une API IA réelle."
-          >
-            <div className="overflow-hidden rounded-2xl border border-[#DDD8CC] bg-[#11110E] shadow-[0_24px_80px_rgba(17,17,14,0.12)]">
-              <video
-                className="aspect-video w-full bg-[#11110E] object-cover"
-                controls
-                muted
-                playsInline
-                poster="/images/demo-assistant-excel-poster.png"
-                preload="metadata"
-              >
-                <source src="/videos/demo-assistant-excel.webm" type="video/webm" />
-                Si la vidéo ne se charge pas, la démo interactive ci-dessus
-                présente les mêmes étapes.
-              </video>
-            </div>
-            <p className="mt-4 text-sm leading-6 text-[#5F5A50]">
-              Si la vidéo ne se charge pas, la démo interactive ci-dessus
-              présente les mêmes étapes.
-            </p>
+            <details className="mt-6 rounded-2xl border border-[#DDD8CC] bg-[#FBFAF5] p-5 shadow-[0_18px_50px_rgba(17,17,14,0.05)]">
+              <summary className="cursor-pointer font-semibold text-[#171713]">
+                Voir un exemple de parcours vidéo
+              </summary>
+              <div className="mt-5 overflow-hidden rounded-xl border border-[#DDD8CC] bg-[#11110E]">
+                <video
+                  className="aspect-video w-full bg-[#11110E] object-cover"
+                  controls
+                  muted
+                  playsInline
+                  poster="/images/demo-assistant-excel-poster.png"
+                  preload="none"
+                >
+                  <source src="/videos/demo-assistant-excel.webm" type="video/webm" />
+                  Si la vidéo ne se charge pas, la démo interactive ci-dessus
+                  présente les mêmes étapes.
+                </video>
+              </div>
+              <p className="mt-4 text-sm leading-6 text-[#5F5A50]">
+                La vidéo reste un exemple de parcours. La preuve principale est
+                la démo interactive locale ci-dessus.
+              </p>
+            </details>
           </Section>
         </>
       ) : null}
