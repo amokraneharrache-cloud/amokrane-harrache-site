@@ -47,8 +47,12 @@ export default async function DemonstratorDetailPage({ params }: PageProps) {
   }
 
   const isExcelAssistant = demonstrator.slug === "assistant-excel";
+  const isReportingWorkflow = demonstrator.slug === "reporting-automatise";
   const ExcelAssistantDemo = isExcelAssistant
     ? (await import("@/components/demos/ExcelAssistantDemo")).ExcelAssistantDemo
+    : null;
+  const ReportingWorkflowDemo = isReportingWorkflow
+    ? (await import("@/components/demos/ReportingWorkflowDemo")).ReportingWorkflowDemo
     : null;
 
   return (
@@ -134,6 +138,25 @@ export default async function DemonstratorDetailPage({ params }: PageProps) {
             </details>
           </Section>
         </>
+      ) : null}
+
+      {isReportingWorkflow ? (
+        <Section
+          eyebrow="DÉMO INTERACTIVE"
+          title="Simuler un workflow de reporting automatisé"
+          intro="Cette simulation utilise des données fictives. Elle montre une logique de consolidation et de contrôle, pas un cas client réel."
+        >
+          {ReportingWorkflowDemo ? <ReportingWorkflowDemo /> : null}
+          <div className="mt-6 grid gap-4 rounded-2xl border border-[#DDD8CC] bg-[#FBFAF5] p-5 shadow-[0_18px_50px_rgba(17,17,14,0.05)] md:grid-cols-[1fr_auto] md:items-center">
+            <p className="leading-7 text-[#5F5A50]">
+              Le workflow rapproche plusieurs exports fictifs, rend visibles les
+              contrôles et prépare un rapport à valider avant diffusion.
+            </p>
+            <Button href="/automatisation-reporting-excel">
+              Faire analyser mon reporting →
+            </Button>
+          </div>
+        </Section>
       ) : null}
 
       <Section

@@ -68,6 +68,7 @@ const demos = [
     title: "Workflow reporting automatisé",
     text: "Consolidation de plusieurs exports, contrôles et génération d'un rapport.",
     href: "/demonstrateurs/reporting-automatise",
+    note: "Démo interactive disponible",
   },
   {
     title: "Assistant documentaire interne",
@@ -182,6 +183,58 @@ export default function HomePage() {
             >
               Voir les cas d'usage →
             </Button>
+          </div>
+        </div>
+      </Section>
+
+      <Section
+        className="bg-[#F7F5EF]"
+        eyebrow="PREUVE CONCRÈTE"
+        title="Testez une démo interactive"
+      >
+        <div className="grid overflow-hidden rounded-2xl border border-[#DDD8CC] bg-[#FBFAF5] shadow-[0_24px_70px_rgba(17,17,14,0.08)] lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="p-6 sm:p-8">
+            <Badge className="border-[#D5E7DA] bg-[#F0FAF4] text-[#0F7A4F]">
+              Analyse locale · Données fictives possibles
+            </Badge>
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-[#5F5A50]">
+              Chargez un fichier exemple ou importez un CSV/XLSX pour voir
+              comment une pré-analyse peut détecter des colonnes, anomalies et
+              points à vérifier — sans envoyer le fichier au serveur.
+            </p>
+            <p className="mt-4 rounded-xl border border-[#D5E7DA] bg-[#F0FAF4] p-4 text-sm leading-6 text-[#0F6B47]">
+              L'analyse se fait localement dans votre navigateur. Elle illustre
+              des règles de lecture et de contrôle, sans promettre une IA
+              complète ni une décision automatique.
+            </p>
+            <Button className="mt-6" href="/demonstrateurs/assistant-excel">
+              Tester la démo Excel →
+            </Button>
+          </div>
+          <div className="border-t border-[#DDD8CC] bg-[#11110E] p-6 text-white sm:p-8 lg:border-l lg:border-t-0">
+            <p className="font-mono text-xs font-semibold uppercase text-[#E8EDFF]">
+              Dans la démo
+            </p>
+            <div className="mt-5 grid gap-3">
+              {[
+                ["01", "Fichier local", "CSV ou XLSX, 5 Mo maximum"],
+                ["02", "Pré-analyse", "Colonnes, montants, dates et statuts"],
+                ["03", "Contrôle humain", "Points à vérifier avant diffusion"],
+              ].map(([number, label, text]) => (
+                <div
+                  className="grid grid-cols-[42px_1fr] gap-4 rounded-xl border border-white/10 bg-white/[0.08] p-4"
+                  key={label}
+                >
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#E8EDFF] font-mono text-sm font-semibold text-[#3558D4]">
+                    {number}
+                  </span>
+                  <div>
+                    <p className="font-semibold text-white">{label}</p>
+                    <p className="mt-1 text-sm leading-6 text-[#E9E4D8]">{text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </Section>
@@ -324,7 +377,14 @@ export default function HomePage() {
         <div className="grid gap-4 md:grid-cols-3">
           {demos.map((demo) => (
             <Card key={demo.title}>
-              <Badge>DÉMONSTRATEUR</Badge>
+              <div className="flex flex-wrap gap-2">
+                <Badge>DÉMONSTRATEUR</Badge>
+                {"note" in demo ? (
+                  <Badge className="border-[#D5E7DA] bg-[#F0FAF4] text-[#0F7A4F]">
+                    {demo.note}
+                  </Badge>
+                ) : null}
+              </div>
               <h3 className="mt-4 text-lg font-semibold text-[#171713]">{demo.title}</h3>
               <p className="mt-3 leading-7 text-[#5F5A50]">{demo.text}</p>
               <Button className="mt-5 w-full" href={demo.href} variant="secondary">
