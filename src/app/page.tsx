@@ -74,6 +74,7 @@ const demos = [
     title: "Assistant documentaire interne",
     text: "Recherche et synthèse à partir de procédures ou documents internes.",
     href: "/demonstrateurs/assistant-documentaire",
+    note: "Démo interactive disponible",
   },
 ];
 

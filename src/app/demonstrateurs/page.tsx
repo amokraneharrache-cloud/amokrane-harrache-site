@@ -53,7 +53,11 @@ export default function DemonstratorsPage() {
             <Card className="flex flex-col" key={demonstrator.slug}>
               <div className="flex flex-wrap gap-2">
                 <Badge>DÉMONSTRATEUR</Badge>
-                {["assistant-excel", "reporting-automatise"].includes(demonstrator.slug) ? (
+                {[
+                  "assistant-excel",
+                  "reporting-automatise",
+                  "assistant-documentaire",
+                ].includes(demonstrator.slug) ? (
                   <Badge className="border-[#D5E7DA] bg-[#F0FAF4] text-[#0F7A4F]">
                     Démo interactive
                   </Badge>

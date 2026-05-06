@@ -48,11 +48,15 @@ export default async function DemonstratorDetailPage({ params }: PageProps) {
 
   const isExcelAssistant = demonstrator.slug === "assistant-excel";
   const isReportingWorkflow = demonstrator.slug === "reporting-automatise";
+  const isDocumentAssistant = demonstrator.slug === "assistant-documentaire";
   const ExcelAssistantDemo = isExcelAssistant
     ? (await import("@/components/demos/ExcelAssistantDemo")).ExcelAssistantDemo
     : null;
   const ReportingWorkflowDemo = isReportingWorkflow
     ? (await import("@/components/demos/ReportingWorkflowDemo")).ReportingWorkflowDemo
+    : null;
+  const DocumentAssistantDemo = isDocumentAssistant
+    ? (await import("@/components/demos/DocumentAssistantDemo")).DocumentAssistantDemo
     : null;
 
   return (
@@ -155,6 +159,24 @@ export default async function DemonstratorDetailPage({ params }: PageProps) {
             <Button href="/automatisation-reporting-excel">
               Faire analyser mon reporting →
             </Button>
+          </div>
+        </Section>
+      ) : null}
+
+      {isDocumentAssistant ? (
+        <Section
+          eyebrow="DÉMO INTERACTIVE"
+          title="Tester un assistant documentaire cadré"
+          intro="Cette simulation utilise des documents fictifs. Elle montre une logique de réponse sourcée, refus hors périmètre et validation humaine, pas un assistant connecté à une vraie entreprise."
+        >
+          {DocumentAssistantDemo ? <DocumentAssistantDemo /> : null}
+          <div className="mt-6 grid gap-4 rounded-2xl border border-[#DDD8CC] bg-[#FBFAF5] p-5 shadow-[0_18px_50px_rgba(17,17,14,0.05)] md:grid-cols-[1fr_auto] md:items-center">
+            <p className="leading-7 text-[#5F5A50]">
+              La démo montre comment cadrer les sources, répondre avec une
+              référence quand c'est possible et refuser les questions hors
+              périmètre documentaire.
+            </p>
+            <Button href="/assistant-ia-interne">Étudier un assistant interne →</Button>
           </div>
         </Section>
       ) : null}
