@@ -63,6 +63,7 @@ const demos = [
     title: "Assistant IA pour fichier Excel",
     text: "Analyse d'un fichier, détection d'anomalies et synthèse exploitable.",
     href: "/demonstrateurs/assistant-excel",
+    note: "Démo interactive disponible",
   },
   {
     title: "Workflow reporting automatisé",

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-import { mainNavigation, serviceNavigation } from "@/content/navigation";
+import { headerNavigation, serviceNavigation } from "@/content/navigation";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -29,11 +29,18 @@ export function MobileNav() {
         <div className="absolute left-0 right-0 top-full border-b border-[#DDD8CC] bg-[#F7F5EF] px-5 py-5 shadow-[0_20px_40px_rgba(17,17,14,0.08)]">
           <nav aria-label="Navigation mobile" className="grid gap-5">
             <div className="grid gap-2">
-              {mainNavigation.map((item) => (
+              {headerNavigation.map((item) => (
                 <Link className="rounded-lg px-3 py-2 font-medium text-[#171713] hover:bg-[#EFEDE5]" href={item.href} key={item.href} onClick={close}>
                   {item.label}
                 </Link>
               ))}
+              <Link
+                className="mt-1 inline-flex min-h-11 items-center justify-center rounded-lg border border-[#11110E] bg-[#11110E] px-4 py-2 text-sm font-semibold text-white hover:border-[#2A2A24] hover:bg-[#2A2A24]"
+                href="/contact"
+                onClick={close}
+              >
+                Planifier un échange →
+              </Link>
             </div>
             <div className="border-t border-[#DDD8CC] pt-4">
               <p className="px-3 font-mono text-xs font-semibold uppercase text-[#3558D4]">Services</p>

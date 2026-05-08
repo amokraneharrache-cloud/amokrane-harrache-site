@@ -21,29 +21,21 @@ export function Footer() {
             Contact via formulaire sécurisé
           </Link>
           <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm">
-            {siteConfig.socialLinks.linkedin ? (
+            {siteConfig.socialLinks.linkedin && (
               <a
                 className="font-medium text-[#3558D4] underline-offset-4 hover:underline"
                 href={siteConfig.socialLinks.linkedin}
               >
                 LinkedIn
               </a>
-            ) : (
-              <span aria-disabled="true" className="text-[#8A857A]">
-                LinkedIn
-              </span>
             )}
-            {siteConfig.socialLinks.github ? (
+            {siteConfig.socialLinks.github && (
               <a
                 className="font-medium text-[#3558D4] underline-offset-4 hover:underline"
                 href={siteConfig.socialLinks.github}
               >
                 GitHub
               </a>
-            ) : (
-              <span aria-disabled="true" className="text-[#8A857A]">
-                GitHub
-              </span>
             )}
             <Link
               className="font-medium text-[#3558D4] underline-offset-4 hover:underline"

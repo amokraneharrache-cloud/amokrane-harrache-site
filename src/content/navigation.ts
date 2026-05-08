@@ -14,8 +14,6 @@ export const headerNavigation = [
   pages.services,
   pages.useCases,
   pages.demonstrators,
-  pages.method,
-  pages.security,
   pages.about,
 ].map(({ label, path }) => ({ label, href: path }));
 
