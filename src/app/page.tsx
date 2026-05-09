@@ -190,7 +190,7 @@ export default function HomePage() {
 
 function HomeHero() {
   return (
-    <section className="border-b border-[#DDD8CC] bg-[#F7F5EF] py-12 sm:py-20 lg:py-16">
+    <section className="border-b border-[#DDD8CC] bg-[#F7F5EF] py-12 sm:py-20 lg:py-14">
       <Container>
         <div className="grid min-w-0 gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div className="min-w-0">
@@ -218,7 +218,7 @@ function HomeHero() {
                 href="/demonstrateurs/assistant-excel"
                 variant="secondary"
               >
-                Tester une démo interactive
+                Tester la démo Excel
               </Button>
             </div>
             <p className="mt-4 max-w-2xl text-sm leading-6 text-[#8A857A] sm:mt-5">
@@ -286,6 +286,9 @@ function ProofBand() {
             </li>
           ))}
         </ul>
+        <p className="mt-4 border-t border-white/10 pt-4 text-sm leading-6 text-[#CFC8BA]">
+          Données, règles métier et validations sont cadrées avant automatisation.
+        </p>
       </Container>
     </section>
   );
